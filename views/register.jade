@@ -1,0 +1,16 @@
+extends ./components/layout
+
+block content
+    .container.text-center.w-25.border.mt-5.p-4
+        h1 Register Form
+        form(action="/register", method="post")
+            .form-floating.mb-3
+                input(type="text", class="form-control", name="username", placeholder="username", required)
+                label(for="", class="") Username
+            .form-floating.mb-3
+                input(type="password", class="form-control", name="password", placeholder="password", required)
+                label(for="", class="") Password
+            .form-floating.mb-3
+                input(type="password", class="form-control", name="repeat", placeholder="rpassword", required)
+                label(for="", class="") Repeat Password
+            input(type="submit", class="btn btn-info form-control", name="submit", value="Submit")

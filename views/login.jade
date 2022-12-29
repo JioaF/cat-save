@@ -1,0 +1,17 @@
+extends ./components/layout
+
+block content
+	.container.text-left.w-25.border.mt-5.p-4
+		if error
+			div(class="alert alert-danger text-center") #{message}
+		h1 Login Form
+		form(action="/login", method="post")
+			.form-floating.mb-3
+				input(type="text", class="form-control", name="username", placeholder="username", required)
+				label(for="", class="") Username
+			.form-floating.mb-3
+				input(type="password", class="form-control", name="password", placeholder="password", required)
+				label(for="", class="") Password
+			.text-left.mb-3
+				a(href="/register", class="text-decoration-none") Dont have an account?
+			input(type="submit", class="btn btn-info form-control", name="submit", value="Log in")

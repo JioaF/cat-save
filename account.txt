@@ -1,0 +1,7 @@
+This I created incase I forgot about the default or first account 
+that used during a development phase
+
+username : user1
+password : 12345
+
+I know it's a bit of exaggerated but who knows that when I will forgot it again
