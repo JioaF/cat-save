@@ -1,19 +1,21 @@
 var express = require('express');
 var router = express.Router();
 var fetch = require('node-fetch');
+require('dotenv').config();
 
 /* GET home page. */
-async function fetchCatId() {
-  const response = await fetch('https://cataas.com/api/cats?limit=5&skip=0');
+async function fetchCat() {
+  const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=4&api_key=${process.env.API_KEY}`);
   const data = await response.json();
-
-  let catId = await data.map(cat => cat['_id']);
-  return catId;
+  return await data.map(cat => {
+    let { id, url } = cat
+    return { "id": id, "url": url }
+  });
 }
 
 router.get('/', async function (req, res, next) {
   let authorized = req.session.authorized;
-  res.render('index', {authorized: authorized, catId: await fetchCatId()});
+  res.render('index', {authorized: authorized, cats: await fetchCat()});
 });
 
 module.exports = router;

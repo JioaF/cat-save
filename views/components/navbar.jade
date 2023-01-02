@@ -1,8 +1,14 @@
-nav(class='navbar bg-dark mb-4')
-    div(class='container-fluid')
-        a(class='navbar-brand text-light', href='/')
-            img(src='images/animal-shelter.png', width="50", height="50")
-            | Save Cat
+nav(class='navbar navbar-expand bg-dark')
+	div(class='container-fluid')
+		a(class='navbar-brand text-light', href='/')
+			img(src='images/animal-shelter.png', width="50", height="50")
+			| Save Cat
+		if showLogoutButton
+		div(class="navbar-collapse")
+			div(class="navbar-nav")
+				a(class="nav-link text-light", href="/collection") Collection
+		a(href="/logout", class="btn btn-danger") Logout
+
 
 
 

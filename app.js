@@ -11,6 +11,7 @@ var debugRouter = require('./routes/debug');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var logoutRouter = require('./routes/logout');
+var collectionRouter = require('./routes/collection');
 
 
 var app = express();
@@ -31,13 +32,22 @@ app.use(
     saveUninitialized: true,
   })
 );
-
+// custom middleware
+app.use((req, res, next) => {
+  if (req.session.authorized) {
+    res.locals.showLogoutButton = true;
+  } else {
+    res.locals.showLogoutButton = false;
+  }
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/debug', debugRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/logout', logoutRouter);
+app.use('/collection', collectionRouter);
 
 // sequelize test connection
 try {

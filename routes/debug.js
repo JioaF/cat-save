@@ -1,24 +1,23 @@
 var express = require('express');
 var router = express.Router();
 const fetch = require('node-fetch');
+require('dotenv').config();
 
 async function fetchCatId() {
-	const response = await fetch('https://cataas.com/api/cats?limit=5&skip=0');
+	const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=10&api_key=${process.env.API_KEY}`);
 	const data = await response.json();
-	
-	let catId = data.map(cat => cat['_id']);
-	return catId;
+	return await data.map(cat => {
+		let {id, url} = cat
+		return { "id" : id, "url" : url }
+	});
 }
 
 /* For debug purpose only */
 router.get('/', async function (req, res, next) {
-	let limit = 5
-	const response = await fetch('https://cataas.com/api/cats?limit=10&skip=0')
-	
-	console.log(await fetchCatId())
+
 	res.json({
 		"empty": "empty",
-		"data": fetchCatId()
+		"data": await fetchCatId()
 	})
 });
 

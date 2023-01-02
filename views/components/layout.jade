@@ -1,9 +1,11 @@
 doctype html
 html(lang="en")
-  head
-    title Cat Save
-    link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
-  body
-    include navbar
-    block content
-    include footer
+	head
+		title Cat Save
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		include navbar
+		.content
+			block content
+		include footer

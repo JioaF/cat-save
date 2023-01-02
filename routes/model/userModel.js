@@ -1,7 +1,7 @@
-var conn = require('../../config/database');
-var { DataTypes } = require('sequelize');
+const conn = require('../../config/database');
+const { DataTypes } = require('sequelize');
 
-var User = conn.define('user', {
+const User = conn.define('user', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: true,
