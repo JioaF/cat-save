@@ -35,12 +35,19 @@ app.use(
 // custom middleware
 app.use((req, res, next) => {
   if (req.session.authorized) {
-    res.locals.showLogoutButton = true;
+    res.locals.showUserNav = true;
   } else {
-    res.locals.showLogoutButton = false;
+    res.locals.showUserNav = false;
+  }
+  next(); 
+});
+const checkSession = (req, res, next) => {
+  if (req.session.authorized == undefined) {
+    res.redirect('/');
   }
   next();
-});
+}
+app.use('/collection', checkSession)
 
 app.use('/', indexRouter);
 app.use('/debug', debugRouter);
@@ -51,6 +58,7 @@ app.use('/collection', collectionRouter);
 
 // sequelize test connection
 try {
+  sequelize.sync();
   sequelize.authenticate();
   console.log("Database connection has been established ssuccessfully!");
 } catch (error) {

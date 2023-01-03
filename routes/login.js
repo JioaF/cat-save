@@ -12,7 +12,7 @@ router.get('/', function (req, res) {
     // TODO : change the login credential with an email later on
     let { username, password } = req.body;
     let findUser = await User.findAll({
-        attributes: ['username', 'password']
+        attributes: ['id', 'username', 'password']
     })
     let result = findUser.find(user =>{
         return user['username'] == username
@@ -20,6 +20,7 @@ router.get('/', function (req, res) {
     })
     if (result) {
         req.session.authorized = true;
+        req.session.userId = result['id'];
         res.redirect('/');
     } else {
         error = true;

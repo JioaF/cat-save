@@ -1,4 +1,12 @@
 extends ./components/layout
 
-block content 
-	h1 Your Cat Collection
+block content
+	if data.length > 0
+		h1 Your Cat Collection
+		div(class="container d-flex flex-row mt-4 gap-4 flex-wrap justify-content-center")
+			each cat in data
+				div(class="text-center border p-3 d-flex flex-column")
+					a(href=`${cat['path']}/${cat['filename']}`, download)
+						img(src=`${cat['path']}/${cat['filename']}`, width="200", height="200", alt="", class="rounded")
+	else
+		h1 Your collection is empty

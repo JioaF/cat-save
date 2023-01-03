@@ -9,7 +9,7 @@ block content
 			each cat in cats
 				div(class="text-center border p-3 d-flex flex-column")
 					img(src=`${cat['url']}`, width="150", height="150", class="rounded")
-					a(href=`/user/add?id=${cat['id']}`, class="w-100 btn btn-info mt-2 text-light") Save
+					a(href=`/collection/add?id=${cat['id']}`, class="w-100 btn btn-info mt-2 text-light") Save
 	else
 		.container-fluid.text-center.p-4.text-light.h-100
 			h1 Find and save your favorable cat images

@@ -3,11 +3,11 @@ nav(class='navbar navbar-expand bg-dark')
 		a(class='navbar-brand text-light', href='/')
 			img(src='images/animal-shelter.png', width="50", height="50")
 			| Save Cat
-		if showLogoutButton
-		div(class="navbar-collapse")
-			div(class="navbar-nav")
-				a(class="nav-link text-light", href="/collection") Collection
-		a(href="/logout", class="btn btn-danger") Logout
+		if showUserNav
+			div(class="navbar-collapse")
+				div(class="navbar-nav")
+					a(class="nav-link text-light", href="/collection") Collection
+			a(href="/logout", class="btn btn-danger") Logout
 
 
 
