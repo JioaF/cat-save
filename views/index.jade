@@ -5,16 +5,16 @@ block content
 		div(class="containter p-4")
 			div(class="mt-4")
 				h1(class="d-inline me-4") List of cat images
-		div(class="container d-flex flex-row mt-4 gap-4 flex-wrap justify-content-center")
+		div(class="container d-flex flex-row my-4 gap-4 flex-wrap justify-content-center p-4")
 			each cat in cats
 				div(class="text-center border p-3 d-flex flex-column")
-					img(src=`${cat['url']}`, width="150", height="150", class="rounded")
+					img(src=`${cat['url']}`,class="rounded cat-img", height="150", width="150")
 					a(href=`/collection/add?id=${cat['id']}`, class="w-100 btn btn-info mt-2 text-light") Save
 	else
-		.container-fluid.text-center.p-4.text-light.h-100
+		.container-fluid.text-center.p-5
 			h1 Find and save your favorable cat images
 				div(class="mt-4 d-flex gap-3 justify-content-center flex-wrap")
 					each image in cats
-						img(src=`${image['url']}`, alt="", class="rounded shadow cat-img")
+						img(src=`${image['url']}`, alt="", class="rounded shadow cat-img", height="220", width="220")
 				p(class="mt-4")
 					a(href="/login", class="btn btn-info w-50") Login

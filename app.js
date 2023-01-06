@@ -41,13 +41,13 @@ app.use((req, res, next) => {
   }
   next(); 
 });
-const checkSession = (req, res, next) => {
-  if (req.session.authorized == undefined) {
-    res.redirect('/');
-  }
-  next();
-}
-app.use('/collection', checkSession)
+// const checkSession = (req, res, next) => {
+//   if (req.session.authorized == undefined) {
+//     res.redirect('/');
+//   }
+//   next();
+// }
+// app.use('/collection', checkSession)
 
 app.use('/', indexRouter);
 app.use('/debug', debugRouter);
