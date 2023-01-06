@@ -1,14 +1,14 @@
 const conn = require('../../config/database');
 const { DataTypes } = require('sequelize');
 
-const User = conn.define('user', {
+const User = conn.define('User', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: true,
         primaryKey: true,
         autoIncrement: true
     },
-    username: {
+    email: {
         type: DataTypes.TEXT,
         allowNull: false
     },
@@ -19,8 +19,6 @@ const User = conn.define('user', {
     date_created: {
         type: DataTypes.TEXT,
     }
-}, {
-    freezeTableName: true,
 });
 
 module.exports = User;

@@ -1,16 +1,16 @@
 extends ./components/layout
 
 block content
-    .container.text-center.w-25.border.mt-5.p-4
-        h1 Register Form
+    .container.text-center.w-25.mt-5.p-4.bg-dark.rounded.bg-opacity-75
+        h1(class="mb-4") Register Form
         form(action="/register", method="post")
-            .form-floating.mb-3
-                input(type="text", class="form-control", name="username", placeholder="username", required)
-                label(for="", class="") Username
-            .form-floating.mb-3
+            .form-floating.mb-4.text-dark
+                input(type="email", class="form-control", name="email", placeholder="email", required)
+                label(for="", class="") Email
+            .form-floating.mb-4.text-dark
                 input(type="password", class="form-control", name="password", placeholder="password", required)
                 label(for="", class="") Password
-            .form-floating.mb-3
+            .form-floating.mb-4.text-dark
                 input(type="password", class="form-control", name="repeat", placeholder="rpassword", required)
                 label(for="", class="") Repeat Password
             input(type="submit", class="btn btn-info form-control", name="submit", value="Submit")
